@@ -1,5 +1,6 @@
 # Ex.No: 01A PLOT A TIME SERIES DATA
-###  Date: 
+###  Date: 11.03.25
+### 212224220012
 
 # AIM:
 To Develop a python program to Plot a time series data (population/ market price of a commodity
@@ -12,22 +13,25 @@ To Develop a python program to Plot a time series data (population/ market price
 5. Display the graph.
 # PROGRAM:
 
-
-
-
-
-
-
-
-
-
+import pandas as pd
+import matplotlib.pyplot as plt
+file_path = '/content/fitness_tracker.csv'
+data = pd.read_csv(file_path)
+data['User_ID'] = pd.to_datetime(data['User_ID'])
+data.set_index('User_ID', inplace=True )
+plt.figure(figsize=(10, 6))
+plt.plot(data.index, data['Steps'], label='Steps', color='blue')
+plt.title('fitness tracker')
+plt.xlabel('User_ID')
+plt.ylabel('Calories_Burned')
+plt.grid(True)
+plt.legend()
+plt.show()
 
 # OUTPUT:
 
-
-
-
-
+![image](https://github.com/user-attachments/assets/592eefb5-81bc-4fa5-bb8e-85b6296bc2d9)
 
 # RESULT:
+
 Thus we have created the python code for plotting the time series of given data.
